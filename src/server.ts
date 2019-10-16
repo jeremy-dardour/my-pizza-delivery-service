@@ -1,12 +1,9 @@
 import 'dotenv/config';
 import 'reflect-metadata';
 import { createConnection } from 'typeorm';
-import AddressController from './address/address.controller';
 import App from './app';
-import AuthenticationController from './authentication/authentication.controller';
-import CategoryController from './category/category.controller';
 import * as config from './ormconfig';
-import PostController from './post/post.controller';
+import PizzaController from './pizza/pizza.controller';
 import validateEnv from './utils/validateEnv';
 
 validateEnv();
@@ -21,10 +18,7 @@ validateEnv();
   }
   const app = new App(
     [
-      new PostController(),
-      new AuthenticationController(),
-      new AddressController(),
-      new CategoryController(),
+      new PizzaController(),
     ],
   );
   app.listen();

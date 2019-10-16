@@ -16,8 +16,8 @@ class App {
   }
 
   public listen() {
-    this.app.listen(process.env.PORT, () => {
-      console.log(`App listening on the port ${process.env.PORT}`);
+    this.app.listen(process.env.NODE_PORT, () => {
+      console.log(`App listening on the port ${process.env.NODE_PORT}`);
     });
   }
 

@@ -40,6 +40,9 @@
     "dev": "ts-node ./src/server.ts",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "typeorm:cli": "ts-node ./node_modules/typeorm/cli -f ./src/ormconfig.ts",
+    "migration:run": "docker-compose exec app npm run typeorm:cli -- migration:run",
+    "migration:revert": "docker-compose exec app npm run typeorm:cli -- migration:revert",
+    "migration:generate": "docker-compose exec app npm run typeorm:cli -- migration:generate",
     "test": "jest"
   },
   "author": "Marcin Wanago",
