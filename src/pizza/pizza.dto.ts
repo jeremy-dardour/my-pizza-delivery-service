@@ -1,9 +1,9 @@
-import { IsString } from 'class-validator';
+import { IsNumber, IsString } from 'class-validator';
 
 class CreatePizzaDto {
   @IsString()
   public type: string;
-  @IsString()
+  @IsNumber()
   public size: number;
 }
 

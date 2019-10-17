@@ -3,8 +3,10 @@ import 'reflect-metadata';
 import { createConnection } from 'typeorm';
 import App from './app';
 import * as config from './ormconfig';
-import PizzaController from './pizza/pizza.controller';
 import validateEnv from './utils/validateEnv';
+
+import OrderController from './order/order.controller';
+import PizzaController from './pizza/pizza.controller';
 
 validateEnv();
 
@@ -18,6 +20,7 @@ validateEnv();
   }
   const app = new App(
     [
+      new OrderController(),
       new PizzaController(),
     ],
   );
