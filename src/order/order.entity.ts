@@ -1,7 +1,7 @@
-import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, JoinTable, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import Customer from '../customer/customer.entity';
 import Pizza from '../pizza/pizza.entity';
-import DeliveryStatus from './delivery-status.enum';
+import DeliveryStatus from './deliveryStatus.enum';
 
 @Entity()
 class Order {
@@ -12,9 +12,11 @@ class Order {
   public deliveryStatus: DeliveryStatus;
 
   @ManyToOne(() => Customer, (customer: Customer) => customer.orders)
+  @JoinTable()
   public customer: Customer;
 
   @OneToMany(() => Pizza, (pizza: Pizza) => pizza.order)
+  @JoinTable()
   public pizzas: Pizza[];
 }
 
